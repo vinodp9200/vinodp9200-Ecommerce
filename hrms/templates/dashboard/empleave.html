@@ -1,0 +1,78 @@
+{% extends 'dashboard/base.html'%}
+{% load static %}
+  {% block body%}
+    <a href="logout" class="btn btn-primary">Logout</a>
+
+ {% if submitted %}
+   <p class="success">
+     Your venue was submitted successfully. Thank you.
+   </p>
+ {% else %}
+   <form action="" method="post" novalidate>
+   <table bgcolor="#ffffcc">
+     {{ form.as_table }}
+     <tr>
+       <td>&nbsp;</td>
+      <td><input type="submit" value="Submit"></td>
+         <td> <a href="dashbord" class="btn btn-success">Back</a></td>
+    </tr>
+  </table>
+   {% csrf_token %}
+   </form>
+ {% endif %}
+ {% endblock%}
+<!--<html>-->
+<!--<head>-->
+<!--<style>-->
+<!--    body{-->
+<!--    bgcolor:red;-->
+<!--    }-->
+
+<!--</style>-->
+<!--</head>-->
+<!--<body>-->
+<!--<form method="post" enctype="multipart/form-data">-->
+<!--    {% csrf_token %}-->
+<!--<h3>Date <input type="date" name="date"placeholder="Enter Current Date"></h3>-->
+<!--<h3>Applicant Name :-
+2
+3  {% block title %}Add Venue{% endblock title %}
+4
+5  {% block content %}
+6  <h1>Add your venue to our database</h1>
+7
+8  {% if submitted %}
+9    <p class="success">
+10     Your venue was submitted successfully. Thank you.
+11   </p>
+12 {% else %}
+13   <form action="" method="post" novalidate>
+14   <table>
+15     {{ form.as_table }}
+16     <tr>
+17       <td>&nbsp;</td>
+18       <td><input type="submit" value="Submit"></td>
+19     </tr>
+20   </table>
+21   {% csrf_token %}
+22   </form>
+23 {% endif %}
+24 {% endblock content %}</h3>-->
+<!--<h3>Applicant Code :-  {{username.code}}</h3>-->
+<!--<h3>Applicant Contact :-  {{username.mobile}}</h3>-->
+<!--<h3>Address <input type="text" name="address"placeholder="Enter Address"></h3>-->
+<!--<h3>Leave From <input type="date" name="from">-->
+<!--    To <input type="date" name="to"></h3>-->
+<!--<h3>Apply To:-->
+<!--<select name="dept">-->
+<!--  <option value="HR">HR</option>-->
+<!--  <option value="TL">TL</option>-->
+<!--  <option value="MD">MD</option>-->
+<!--</select></h3>-->
+<!--<h3>Resion:- <input type="text" name="resion"></h3>-->
+<!--<h3>Cc To <input type="text" name="email"> <button type="submit" name="sub">Select</button> </h3>-->
+<!--<h3><button type="submit" name="apply">Apply</button> </h3>-->
+<!--<h3><button type="submit" name="cancle">Cancle</button> </h3>-->
+<!--</form>-->
+<!--</body>-->
+<!--</html>-->

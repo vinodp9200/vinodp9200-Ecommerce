@@ -1,0 +1,30 @@
+
+.myform{
+   margin-top:200px;
+   padding:23pz;
+}
+
+body{
+background:#FFFFFF;
+}
+form{
+width: 38%;
+background: #718582;
+margin: auto;
+padding: 10px;
+}
+.form-btn{
+    margin:10px;
+   margin-top: 10px;
+    width: 50%;
+    padding-: 6px;
+    background: #ff9900;
+    border:2;
+    color: #fff;
+}
+
+.title{
+
+     color:black;
+
+}

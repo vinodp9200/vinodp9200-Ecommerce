@@ -1,0 +1,54 @@
+<html>
+{% load static %}
+<header>
+    <title>WCT-HRMS</title>
+    <link href="{% static 'assets/css/bootstrap.min.css'%}" rel="stylesheet">
+    <link href="{% static 'assets/css/mystyle.css'%}" rel="stylesheet">
+</header>
+<body>
+<div class="container">
+
+
+    <div class="myform">
+
+
+        <form method="post" novalidate>
+
+            {% if messages %}
+   {% for message in messages %}
+    <h6 style="color:red;" {% if message.tags%} class="{{message.tags}}"{% endif %}
+    >{{message}}</h6>
+   {% endfor%}
+
+{% endif%}
+        {% csrf_token %}
+    <img src="{% static 'assets/images/webc.png'%}" alt="WCT" class="avatar">
+
+  {% csrf_token %}
+  <div class="container">
+    <label for="uname"><b>Username</b></label><br>
+    <input type="text" placeholder="Enter Name" name="uname" required><br>
+
+    <label for="psw"><b>New Password</b></label><br>
+    <input type="password" placeholder="Enter Password" name="psw" required>
+    <br>
+    <label for="psws"><b>Re_Enter Password</b></label><br>
+    <input type="password" placeholder="Enter Password" name="psw1" required><br>
+
+        <div class="button">
+            <button type="submit" class="btn btn-success">Save</button>
+            <a href="dashbord" class="btn btn-primary">Back</a>
+        </div>
+           {% if form.non_field_errors %}
+               {% for error in form.non_field_errors %}
+            <div class="group">
+            <p style="color:red"><b>{{error}}</b></p>
+            </div>
+               {% endfor%}
+            {% endif %}
+        </form>
+        {{data}}
+    </div>
+</div>
+</body>
+</html>

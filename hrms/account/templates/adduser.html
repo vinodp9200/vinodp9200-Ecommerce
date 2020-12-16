@@ -1,0 +1,48 @@
+<html>
+{% load static %}
+<header>
+    <title>WCT-HRMS</title>
+    <link href="{% static 'assets/css/bootstrap.min.css'%}" rel="stylesheet">
+    <link href="{% static 'assets/css/mystyle.css'%}" rel="stylesheet">
+</header>
+<body>
+<div class="container">
+
+    {% if messages %}
+   {% for message in messages %}
+    <small {% if message.tags%} class="{{message.tags}}"{% endif %}
+    >{{message}}</small>
+   {% endfor%}
+
+{% endif%}
+
+
+    <div class="myform">
+
+        <form method="post" novalidate>
+        {% csrf_token %}
+
+            <div class="group">
+                {% for fm in form %}
+        <div class="title">{{fm.label_tag}}</div>
+        {{fm}}{{fm.errors|striptags}}
+                {% endfor %}
+
+         </div>
+
+
+
+        <div class="button">
+            <button type="submit" class="btn btn-success">Register</button>
+        </div>
+           {% if form.non_field_errors %}
+               {% for error in form.non_field_errors %}
+            <p><b>{{error}}</b></p>
+               {% endfor%}
+            {% endif %}
+        </form>
+        {{data}}
+    </div>
+</div>
+</body>
+</html>

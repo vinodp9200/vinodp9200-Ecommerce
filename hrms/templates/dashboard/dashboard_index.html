@@ -1,0 +1,35 @@
+{% extends 'dashboard/base.html'%}
+{% load static %}
+{%block title%}WCT_Employee{% endblock%}
+
+{% block body%}
+<div class="container">
+
+      <div class="row">
+    <div class="col-sm-3" >
+        <div class="dash-bx" >
+     <button class="btn btn-primary">Web Development <span>{{webdevelopment}}</span></button>
+
+    </div></div>
+
+    <div class="col-sm-3" >
+        <div class="dash-bx" >
+     <button class="btn btn-primary">Digital Marketing <span> {{degital}} </span></button>
+    </div></div>
+
+    <div class="col-sm-3" >
+        <div class="dash-bx" >
+     <button class="btn btn-primary">Sales Team<span>{{sales}}</span></button>
+    </div></div>
+
+         <div class="col-sm-3" style="background:green;">
+          <button class="btn btn-primary">Human Resource<span>{{hr}}</span></button>
+         </div>
+
+
+
+
+</div>
+
+
+      {% endblock %}

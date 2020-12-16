@@ -1,0 +1,155 @@
+{% extends 'dashboard/base.html'%}
+{% load static %}
+  <link href="{% static 'assets/css/bootstrap.min.css'%}" rel="stylesheet"/>
+
+{% block body %}
+<div class="container" >
+    <a href="/logout" class="btn btn-primary">Logout</a>
+  <h2 style="color:#f2e01b">Web Cloud Technology</h2>
+   <p style="color:#f2e01b">Block No.59, New Rohtak Road,</p>
+   <p style="color:#f2e01b">Near Liberty Cinema, Karol Bagh,</p>
+    <p style="color:#f2e01b">New Delhi-110005</p>
+  <table class="table table-bordered" border="1" bgcolor="#ff8566">
+    <thead>
+    <tr>
+        {% for slip in slip %}
+        <th colspan="4" align="center">Employee Name:- {{slip.Name}}</th>
+      </tr>
+      <tr>
+        <th colspan="4" align="center">Employee Code:- {{slip.EMP_Code}}</th>
+      </tr>
+    <tr>
+        <th colspan="4" align="center">Desgnation:- {{slip.Designatio}}</th>
+      </tr>
+    <tr>
+        <th colspan="4" align="center">Department:- {{slip.Department}}</th>
+      </tr>
+    <tr>
+        <th colspan="4" align="center">Month & Year:- {{slip.Month_Year}}</th>
+      </tr>
+
+
+    </thead>
+    <tbody>
+
+    <tr>
+        <td colspan="2"align="center"><b>Earning</b></td>
+        <td colspan="2" align="center"><b>Deductions</b></td>
+      </tr>
+      <tr>
+          <td><b>Salary Head</b></td>
+          <td><b>Amount</b></td>
+          <td><b>Salary Head</b></td>
+          <td><b>Amount</b></td>
+      </tr>
+       <tr>
+        <td>Basic</td>
+        <td>{{slip.Basic}}</td>
+        <td>PF Employee</td>
+          <td>{{slip.PF_Employee}}</td>
+      </tr>
+      <tr>
+        <td>HRA</td>
+        <td>{{slip.H_R_A}}</td>
+        <td>ESI Employee</td>
+          <td>{{slip.ESI_Employee}}</td>
+      </tr>
+      <tr>
+        <td>Conv.ALL</td>
+        <td>{{slip.Conv_All}}</td>
+        <td>Loan/Advance</td>
+          <td>{{slip.Loan_Advance}}</td>
+      </tr>
+      <tr>
+        <td>Trans.ALL</td>
+        <td>{{slip.Trans_All}}</td>
+        <td>Tax</td>
+          <td>{{slip.Tax}}</td>
+      </tr>
+      <tr>
+        <td>CEA</td>
+        <td>{{slip.CEA}}</td>
+        <td>Leave</td>
+          <td>{{slip.Leave}}</td>
+      </tr>
+
+    <tr>
+        <td>Others</td>
+        <td>{{slip.Others}}</td>
+        <td></td>
+          <td></td>
+      </tr>
+
+    <tr>
+        <td>Medical Allowance</td>
+        <td>{{slip.Medical_Allowance}}</td>
+        <td></td>
+          <td></td>
+      </tr>
+    <tr>
+        <td><b>Salary Gross PM</b></td>
+        <td><b>{{slip.Salary_Gross_PM}}</b></td>
+        <td></td>
+          <td></td>
+      </tr>
+
+    <tr>
+        <td>Telephone</td>
+        <td>{{slip.Telephone}}</td>
+        <td></td>
+          <td></td>
+      </tr>
+    <tr>
+        <td>Others</td>
+        <td>{{slip.Other}}</td>
+        <td></td>
+          <td></td>
+      </tr>
+
+    <tr>
+        <td><b>Salary</b></td>
+        <td><b>{{slip.Salary}}</b></td>
+        <td><b>Total Deduction</b></td>
+        <td><b>{{slip.Total_deduction}}</b></td>
+      </tr>
+ {% endfor %}
+    </tbody>
+
+
+  </table>
+
+
+</div>
+<div align="center">
+    <a href="download" class="btn btn-danger"> Download Payslip</a>
+    <a href="pdf" class="btn btn-danger">Payslip Pdf</a>
+    <a onclick="window.print()" class="btn btn-primary">Print</a>
+
+</div>
+<script>
+     $(document).ready(function() {
+      //Default data table
+       $('#default-datatable').DataTable();
+
+
+       var table = $('#example').DataTable( {
+        lengthChange: false,
+        buttons: [ 'copy', 'excel', 'pdf', 'print', 'colvis' ]
+      } );
+
+     table.buttons().container()
+        .appendTo( '#example_wrapper .col-md-6:eq(0)' );
+
+      } );
+
+    </script>
+
+{% endblock %}
+
+
+
+
+
+
+
+
